@@ -9,6 +9,10 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dhmoney
+    username: grupo9
+    password: grupo9
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
