@@ -8,3 +8,13 @@ eureka:
       default-zone: http://localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      dll-auto: update
+    show-sql: true
+    datasource:
+      url: jdbc:mysql://localhost:3306/dh_money
+      username: grupo9
+      password: grupo9
