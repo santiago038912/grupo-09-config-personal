@@ -13,6 +13,9 @@ spring:
     url: jdbc:mysql://localhost:3306/dhmoney
     username: integrador
     password: grupo9
+  sql:
+    init:
+      data-locations: classpath:build.sql
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
