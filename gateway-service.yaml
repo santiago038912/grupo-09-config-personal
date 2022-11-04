@@ -30,3 +30,21 @@ spring:
             - Path=/user/**
           filters:
             - RemoveRequestHeader=Cookie
+        - id: account-service
+          uri: lb://account-service/
+          predicates:
+            - Path=/account/**
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: card-service
+          uri: lb://card-service/
+          predicates:
+            - Path=/cards/**
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: transaction-service
+          uri: lb://transaction-service/
+          predicates:
+            - Path=/transaction/**
+          filters:
+            - RemoveRequestHeader=Cookie
