@@ -15,10 +15,26 @@ spring:
   main:
     web-application-type: reactive
     allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:9090/realms/DigitalMoneyHouse/protocol/openid-connect/auth 
+            userinfo-uri: http://localhost:9090/realms/DigitalMoneyHouse/protocol/openid-connect/userinfo
+            user-name-attribute: preferred-username
+            token-uri: http://localhost:9090/realms/DigitalMoneyHouse/protocol/openid-connect/token
+        registration:
+          client1:
+            provider: keycloak
+            client-id: client1
+            client-secret: LL0tbHYNV0h1kXydGoPwwANZy6zcsamV
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/client1
   cloud:
     gateway:
-#       default-filters:
-#         - TokenRelay
+      default-filters:
+        - TokenRelay
       discovery:
         locator:
           enabled: true
