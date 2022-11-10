@@ -22,3 +22,8 @@ spring:
       url: jdbc:mysql://localhost:3306/dhmoney
       username: integrador
       password: grupo9
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/auth/realms/DigitalMonryHouse
