@@ -22,8 +22,28 @@ spring:
       url: jdbc:mysql://localhost:3306/dhmoney
       username: integrador
       password: grupo9
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:9090/auth/realms/DigitalMoneyHouse
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}
+            jwk-set-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/certs
+          client:
+            registration:
+              users-client:
+                provider: keycloak
+                client-id: ${d-h-m.keycloak.clientId}
+                client-secret: ${d-h-m.keycloak.clientSecret}
+                authorization-grant-type: client_credentials
+              provider:
+                users-client:
+                  issuer-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}
+                  jwk-set-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/certs
+
+d-h-m:
+  keycloak:
+    realm: dmh
+    clientId: users-client
+    clientSecret: j8pD7IEsRG44Dua4YGrc9gHOqv7mVGXu
+    serverUrl: http://localhost:8080
+    tokenEndpoint: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/token
