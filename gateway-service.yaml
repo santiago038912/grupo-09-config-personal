@@ -71,11 +71,3 @@ spring:
 #            end-session-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/logout
             issuer-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}
             jwk-set-uri: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/certs
-
-d-h-m:
-  keycloak:
-    realm: dmh
-    clientId: users-client
-    clientSecret: j8pD7IEsRG44Dua4YGrc9gHOqv7mVGXu
-    serverUrl: http://localhost:8080
-    tokenEndpoint: ${d-h-m.keycloak.serverUrl}/realms/${d-h-m.keycloak.realm}/protocol/openid-connect/token
